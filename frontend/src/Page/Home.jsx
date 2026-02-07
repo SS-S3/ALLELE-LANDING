@@ -11,6 +11,7 @@ import { DNAHelix, GenomicSequence } from '../component/DNAHelix.jsx'
 import { FloatingDockDemo } from '../component/sidebar.jsx'
 import Footer from '../component/Footer.jsx'
 import { BiotechBackground } from '../component/BiotechBackground.jsx'
+import { DownloadSection } from '../component/Download.jsx'
 
 function Home() {
   return (
@@ -66,7 +67,12 @@ function Home() {
            <ExpandableCardDemo/>
         </div>
 
-        <div id="about" className='text-xl mt-10'>
+        {/* Download section */}
+        <div id="download" className='mt-10'>
+           <DownloadSection/>
+        </div>
+
+        <div id="about" className='mt-10'>
             <TooltipCardDemo/>
         </div>
       </div>

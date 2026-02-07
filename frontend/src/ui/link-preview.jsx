@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
-export const LinkPreview = ({ children, url, className }) => {
+export const LinkPreview = ({ children, url, className, imageSrc }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    window.open(url, '_blank');
+  };
 
   return (
     <>
       <span
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
+        onClick={handleClick}
         className={cn(
           "relative inline-block cursor-pointer",
           className
@@ -41,8 +46,19 @@ export const LinkPreview = ({ children, url, className }) => {
                   <div className="text-xs text-neutral-500 dark:text-neutral-500 break-all">
                     {url}
                   </div>
-                  <div className="mt-3 h-[150px] bg-neutral-100 dark:bg-neutral-900 rounded-lg flex items-center justify-center">
-                    <div className="text-neutral-400 text-sm">
+                  <div className="mt-3 h-[150px] bg-neutral-100 dark:bg-neutral-900 rounded-lg flex items-center justify-center overflow-hidden">
+                    {imageSrc ? (
+                      <img 
+                        src={imageSrc} 
+                        alt="Preview" 
+                        className="w-full h-full object-fill"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                    ) : null}
+                    <div className={`text-neutral-400 text-sm ${imageSrc ? 'hidden' : 'flex'} items-center justify-center w-full h-full`}>
                       Link Preview
                     </div>
                   </div>

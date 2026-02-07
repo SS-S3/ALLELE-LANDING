@@ -16,15 +16,15 @@ export function FocusCardsDemo() {
     },
     {
       title: "React",
-      src: "/assessts/React.png",
+      src: "/assessts/react.png",
     },
     {
-      title: "Node.js",
-      src: "https://images.unsplash.com/photo-1507041957456-9c397ce39c97?q=80&w=3456&auto=format&fit=crop",
+      title: "Hugging Face",
+      src: "/assessts/huggingface.png",
     },
     {
-      title: "MongoDB",
-      src: "https://assets.aceternity.com/the-first-rule.png",
+      title: "SciKit Learn",
+      src: "/assessts/scikit-learn.png",
     },
   ];
 

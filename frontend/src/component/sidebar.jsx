@@ -7,6 +7,7 @@ import {
   IconNewSection,
   IconTerminal2,
   IconChartBar,
+  IconDownload,
 } from "@tabler/icons-react";
 
 export function FloatingDockDemo() {
@@ -46,6 +47,13 @@ export function FloatingDockDemo() {
         <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "#about",
+    },
+    {
+      title: "Download",
+      icon: (
+        <IconDownload className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#download",
     },
 
     {

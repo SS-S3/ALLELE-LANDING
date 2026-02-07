@@ -8,10 +8,10 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <h2 className="text-white text-2xl font-semibold mb-4">
-            AlleleRank
+            Allele 7.o
           </h2>
           <p className="text-sm leading-relaxed">
-            AlleleRank is a biotechnology analytics platform focused on
+            Allele 7.o is a biotechnology analytics platform focused on
             disease-associated genetic variants, pathogen genomics, and
             evidence-driven interpretation for research and discovery.
           </p>
@@ -45,7 +45,7 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-medium mb-4">Contact</h3>
           <ul className="space-y-2 text-sm">
-            <li>Email: contact@allelerank.bio</li>
+            <li>Email: contact@allele7o.bio</li>
             <li><Link to="/contact" className="hover:text-white transition-colors cursor-pointer">Collaborations</Link></li>
             <li><Link to="/contact" className="hover:text-white transition-colors cursor-pointer">Research Partnerships</Link></li>
             <li><Link to="/contact" className="hover:text-white transition-colors cursor-pointer">Careers</Link></li>
@@ -57,7 +57,7 @@ export default function Footer() {
       {/* Divider */}
       <div className="border-t border-gray-800 mt-12 pt-6 text-center text-sm">
         <p>
-          © {new Date().getFullYear()} AlleleRank. All rights reserved.
+          © {new Date().getFullYear()} Allele 7.o. All rights reserved.
         </p>
         <p className="mt-2 text-gray-500">
           For research and educational purposes only. Not intended for clinical

@@ -7,8 +7,9 @@ export function LinkPreviewDemo() {
       <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-3xl mx-auto mb-10">
         Our variant prioritization strategy is informed by{" "}
         <LinkPreview
-          url="https://sr-management.vercel.app/"
+          url="https://www.ncbi.nlm.nih.gov/clinvar/"
           className="font-bold"
+          imageSrc="/assessts/clinvar.png"
         >
           ClinVar
         </LinkPreview>{" "}
@@ -16,6 +17,7 @@ export function LinkPreviewDemo() {
         <LinkPreview
           url="https://gnomad.broadinstitute.org/"
           className="font-bold"
+          imageSrc="/assessts/gnome.png"
         >
           gnomAD
         </LinkPreview>
@@ -27,6 +29,7 @@ export function LinkPreviewDemo() {
         <LinkPreview
           url="https://www.electronjs.org/"
           className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
+          imageSrc="/assessts/Electron.png"
         >
           Standalone Electron Desktop Platform
         </LinkPreview>{" "}

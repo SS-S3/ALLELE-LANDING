@@ -1,6 +1,7 @@
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { variantReports } from "./Variantdata";
 
 export function ExpandableCardDemo() {
   const [active, setActive] = useState(null);
@@ -69,7 +70,9 @@ export function ExpandableCardDemo() {
                   height={200}
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top" />
+                  className={`w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top ${
+                    active.id === 'pathogenic' || active.id === 'vus' ? 'bg-white p-2' : ''
+                  }`} />
               </motion.div>
 
               <div>
@@ -87,13 +90,16 @@ export function ExpandableCardDemo() {
                     </motion.p>
                   </div>
 
-                  <motion.a
+                  <motion.button
                     layoutId={`button-${active.title}-${id}`}
-                    href={active.ctaLink}
-                    target="_blank"
-                    className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white">
+                    onClick={(e) => e.preventDefault()}
+                    className={`px-4 py-3 text-sm rounded-full font-bold text-white flex items-center ${
+                      active.id === 'pathogenic' ? 'bg-red-500 hover:bg-red-600 justify-start' :
+                      active.id === 'vus' ? 'bg-gray-500 hover:bg-gray-600 justify-center' :
+                      'bg-green-500 hover:bg-green-600 justify-center'
+                    }`}>
                     {active.ctaText}
-                  </motion.a>
+                  </motion.button>
                 </div>
                 <div className="pt-4 relative px-4">
                   <motion.div
@@ -118,7 +124,7 @@ export function ExpandableCardDemo() {
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer">
+            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-blue-50/20 dark:hover:bg-blue-900/20 rounded-xl cursor-pointer">
             <div className="flex gap-4 flex-col md:flex-row ">
               <motion.div layoutId={`image-${card.title}-${id}`}>
                 <img
@@ -126,7 +132,7 @@ export function ExpandableCardDemo() {
                   height={100}
                   src={card.src}
                   alt={card.title}
-                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top" />
+                  className={`h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top ${index < 2 ? 'bg-white p-1' : ''}`} />
               </motion.div>
               <div className="">
                 <motion.h3
@@ -143,7 +149,11 @@ export function ExpandableCardDemo() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0">
+              className={`px-4 py-2 text-sm rounded-full font-bold mt-4 md:mt-0 w-24 text-center ${
+                index === 0 ? 'bg-red-500 hover:bg-red-600 text-white' : 
+                index === 1 ? 'bg-gray-500 hover:bg-gray-600 text-white' : 
+                'bg-green-500 hover:bg-green-600 text-white'
+              }`}>
               {card.ctaText}
             </motion.button>
           </motion.div>
@@ -185,111 +195,30 @@ export const CloseIcon = () => {
   );
 };
 
-const cards = [
-  {
-    description: "Lana Del Rey",
-    title: "Summertime Sadness",
-    src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-    ctaText: "View",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-                    her melancholic and cinematic music style. Born Elizabeth Woolridge
-                    Grant in New York City, she has captivated audiences worldwide with
-                    her haunting voice and introspective lyrics. <br /> <br />Her songs
-                    often explore themes of tragic romance, glamour, and melancholia,
-                    drawing inspiration from both contemporary and vintage pop culture.
-                    With a career that has seen numerous critically acclaimed albums, Lana
-                    Del Rey has established herself as a unique and influential figure in
-                    the music industry, earning a dedicated fan base and numerous
-                    accolades.
-                  </p>
-      );
-    },
+const cards = variantReports.map((variant, index) => ({
+  id: variant.id,
+  description: variant.confidence,
+  title: variant.title,
+  src: variant.src,
+  ctaText: variant.classification,
+  ctaLink: "https://ui.aceternity.com/templates",
+  content: () => {
+    return (
+      <div>
+        <p><strong>Clinical Significance:</strong> {variant.classification}</p>
+        <p><strong>Evidence Strength:</strong> {variant.evidence}</p>
+        <br />
+        <p><strong>Description:</strong></p>
+        <p>{variant.description}</p>
+        <br />
+        {variant.sections.map((section, idx) => (
+          <div key={idx}>
+            <p><strong>{section.heading}:</strong></p>
+            <p>{section.content}</p>
+            <br />
+          </div>
+        ))}
+      </div>
+    );
   },
-  {
-    description: "Babbu Maan",
-    title: "Mitran Di Chhatri",
-    src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
-    ctaText: "View",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>Babu Maan, a legendary Punjabi singer, is renowned for his soulful
-                    voice and profound lyrics that resonate deeply with his audience. Born
-                    in the village of Khant Maanpur in Punjab, India, he has become a
-                    cultural icon in the Punjabi music industry. <br /> <br />His songs
-                    often reflect the struggles and triumphs of everyday life, capturing
-                    the essence of Punjabi culture and traditions. With a career spanning
-                    over two decades, Babu Maan has released numerous hit albums and
-                    singles that have garnered him a massive fan following both in India
-                    and abroad.
-                  </p>
-      );
-    },
-  },
-
-  {
-    description: "Metallica",
-    title: "For Whom The Bell Tolls",
-    src: "https://assets.aceternity.com/demos/metallica.jpeg",
-    ctaText: "View",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>Metallica, an iconic American heavy metal band, is renowned for their
-                    powerful sound and intense performances that resonate deeply with
-                    their audience. Formed in Los Angeles, California, they have become a
-                    cultural icon in the heavy metal music industry. <br /> <br />Their
-                    songs often reflect themes of aggression, social issues, and personal
-                    struggles, capturing the essence of the heavy metal genre. With a
-                    career spanning over four decades, Metallica has released numerous hit
-                    albums and singles that have garnered them a massive fan following
-                    both in the United States and abroad.
-                  </p>
-      );
-    },
-  },
-  {
-    description: "Led Zeppelin",
-    title: "Stairway To Heaven",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    ctaText: "View",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>Led Zeppelin, a legendary British rock band, is renowned for their
-                    innovative sound and profound impact on the music industry. Formed in
-                    London in 1968, they have become a cultural icon in the rock music
-                    world. <br /> <br />Their songs often reflect a blend of blues, hard
-                    rock, and folk music, capturing the essence of the 1970s rock era.
-                    With a career spanning over a decade, Led Zeppelin has released
-                    numerous hit albums and singles that have garnered them a massive fan
-                    following both in the United Kingdom and abroad.
-                  </p>
-      );
-    },
-  },
-  {
-    description: "Mustafa Zahid",
-    title: "Toh Phir Aao",
-    src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
-    ctaText: "View",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>"Aawarapan", a Bollywood movie starring Emraan Hashmi, is
-                    renowned for its intense storyline and powerful performances. Directed
-                    by Mohit Suri, the film has become a significant work in the Indian
-                    film industry. <br /> <br />The movie explores themes of love,
-                    redemption, and sacrifice, capturing the essence of human emotions and
-                    relationships. With a gripping narrative and memorable music,
-                    "Aawarapan" has garnered a massive fan following both in
-                    India and abroad, solidifying Emraan Hashmi's status as a
-                    versatile actor.
-                  </p>
-      );
-    },
-  },
-];
+}));

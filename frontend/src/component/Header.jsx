@@ -10,7 +10,7 @@ export function Header() {
         revealedClassName="dark:text-white text-black"
         revealDelayMs={50} />
       <EncryptedText
-        text="AlleleRank"
+        text="Allele 7.o"
         encryptedClassName="text-neutral-500"
         revealedClassName="dark:text-white text-black font-bold"
         revealDelayMs={50} />
