@@ -2,18 +2,18 @@ import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 
 export function TypewriterLine() {
   const words = [
-    { text: "Build" },
-    { text: "awesome" },
-    { text: "apps" },
+    { text: "Decode" },
+    { text: "disease" },
+    { text: "risk" },
     { text: "with" },
     {
-      text: "Aceternity.",
-      className: "text-blue-500 dark:text-blue-500 mx-auto",
+      text: "Genomic intelligence.",
+      className: "text-blue-500 font-bold dark:text-blue-500 mx-auto",
     },
   ];
 
   return (
-    <div className="flex text-sm items-center justify-center">
+    <div className="flex text-xs items-center justify-center">
       <TypewriterEffectSmooth words={words} delay={0} duration={4} />
     </div>
   );

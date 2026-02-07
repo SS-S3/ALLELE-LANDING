@@ -48,11 +48,11 @@ export const MacbookScroll = ({
           translateY: textTransform,
           opacity: textOpacity,
         }}
-        className="dark:text-white text-neutral-800 text-3xl font-bold mb-10 text-center"
+        className="dark:text-white text-neutral-800 text-3xl font-normal mb-10 text-center"
       >
         {title || (
           <span>
-            This Macbook is built with Tailwindcss. <br /> No kidding.
+            Analyze genetic variants, pathogens, and disease associations <br /> using evidence-driven genomic models.
           </span>
         )}
       </motion.h2>
@@ -111,11 +111,11 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
         }}
         className="h-96 w-[32rem] absolute inset-0 bg-[#010101] rounded-2xl p-2 overflow-visible z-50"
       >
-        <div className="absolute inset-0 bg-[#272729] rounded-lg" />
+        <div className="absolute inset-0 bg-[#272729] rounded-lg overflow-hidden" />
         <img
           src={src}
           alt="aceternity logo"
-          className="object-cover object-left-top absolute rounded-lg inset-0 h-full w-full"
+          className="object-fill absolute rounded-lg inset-2 w-[calc(100%-1rem)] h-[calc(100%-1rem)]"
         />
       </motion.div>
     </div>
@@ -125,7 +125,7 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
 export const Trackpad = () => {
   return (
     <div
-      className="w-[40%] mx-auto h-32 rounded-xl my-1"
+      className="w-[40%] mx-auto h-16 rounded-xl my-0.5"
       style={{
         boxShadow: "0px 0px 1px 1px #00000020 inset",
       }}
@@ -136,8 +136,8 @@ export const Trackpad = () => {
 const KBD = ({ children, className = "", wide = false }) => (
   <div
     className={cn(
-      "h-12 bg-[#1a1a1c] rounded-md border border-[#2a2a2c] flex items-center justify-center text-[10px] text-gray-300 font-normal shadow-[inset_0_-1px_0_0_rgba(0,0,0,0.5)]",
-      wide ? className : "w-[35px]",
+      "h-7 bg-[#1a1a1c] rounded-md border border-[#2a2a2c] flex items-center justify-center text-[7px] text-gray-300 font-normal shadow-[inset_0_-1px_0_0_rgba(0,0,0,0.5)]",
+      wide ? className : "w-[31px]",
       className
     )}
   >
@@ -153,64 +153,64 @@ export const Keypad = () => {
   const bottomRow = ["shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "shift"];
 
   return (
-    <div className="mx-0 flex-1 flex flex-col justify-start p-2" style={{ backgroundColor: 'transparent' }}>
+    <div className="mx-0 flex-1 flex flex-col justify-between p-1.5 overflow-hidden" style={{ backgroundColor: 'transparent' }}>
       {/* Function row */}
-      <div className="flex gap-[3px] mb-[5px]">
+      <div className="flex gap-[1px] mb-[1px]">
         {fnRow.map((key, i) => (
-          <KBD key={`fn-${i}`} className={i === 0 ? "w-[55px] text-[9px]" : i === fnRow.length - 1 ? "w-[55px]" : "w-[35px] text-[9px]"}>
+          <KBD key={`fn-${i}`} className={i === 0 ? "w-[50px] text-[6px]" : i === fnRow.length - 1 ? "w-[50px]" : "w-[31px] text-[6px]"}>
             {key}
           </KBD>
         ))}
       </div>
       {/* Number row */}
-      <div className="flex gap-[3px] mb-[5px]">
+      <div className="flex gap-[1px] mb-[1px]">
         {numberRow.map((key, i) => (
           <KBD
             key={`num-${i}`}
-            className={i === numberRow.length - 1 ? "w-[70px] text-[8px]" : "w-[35px]"}
+            className={i === numberRow.length - 1 ? "w-[64px] text-[6px]" : "w-[32px]"}
           >
             {key}
           </KBD>
         ))}
       </div>
       {/* QWERTY row */}
-      <div className="flex gap-[3px] mb-[5px]">
-        <KBD className="w-[52px] text-[8px]">{qwertyRow[0]}</KBD>
+      <div className="flex gap-[1px] mb-[1px]">
+        <KBD className="w-[50px] text-[6px]">{qwertyRow[0]}</KBD>
         {qwertyRow.slice(1).map((key, i) => (
-          <KBD key={`qw-${i}`} className="w-[35px]">{key}</KBD>
+          <KBD key={`qw-${i}`} className="w-[32px]">{key}</KBD>
         ))}
       </div>
       {/* Home row */}
-      <div className="flex gap-[3px] mb-[5px]">
-        <KBD className="w-[65px] text-[8px]">{homeRow[0]}</KBD>
+      <div className="flex gap-[1px] mb-[1px]">
+        <KBD className="w-[60px] text-[6px]">{homeRow[0]}</KBD>
         {homeRow.slice(1, -1).map((key, i) => (
-          <KBD key={`home-${i}`} className="w-[35px]">{key}</KBD>
+          <KBD key={`home-${i}`} className="w-[32px]">{key}</KBD>
         ))}
-        <KBD className="w-[65px] text-[8px]">{homeRow[homeRow.length - 1]}</KBD>
+        <KBD className="w-[60px] text-[6px]">{homeRow[homeRow.length - 1]}</KBD>
       </div>
       {/* Bottom letter row */}
-      <div className="flex gap-[3px] mb-[5px]">
-        <KBD className="w-[80px] text-[8px]">{bottomRow[0]}</KBD>
+      <div className="flex gap-[1px] mb-[1px]">
+        <KBD className="w-[70px] text-[6px]">{bottomRow[0]}</KBD>
         {bottomRow.slice(1, -1).map((key, i) => (
-          <KBD key={`bot-${i}`} className="w-[35px]">{key}</KBD>
+          <KBD key={`bot-${i}`} className="w-[32px]">{key}</KBD>
         ))}
-        <KBD className="w-[80px] text-[8px]">{bottomRow[bottomRow.length - 1]}</KBD>
+        <KBD className="w-[70px] text-[6px]">{bottomRow[bottomRow.length - 1]}</KBD>
       </div>
       {/* Space bar row */}
-      <div className="flex gap-[3px]">
-        <KBD className="w-[40px] text-[8px]">fn</KBD>
-        <KBD className="w-[40px] text-[9px]">⌃</KBD>
-        <KBD className="w-[40px] text-[9px]">⌥</KBD>
-        <KBD className="w-[50px] text-[9px]">⌘</KBD>
+      <div className="flex gap-[1px]">
+        <KBD className="w-[29px] text-[5px]">fn</KBD>
+        <KBD className="w-[29px] text-[6px]">⌃</KBD>
+        <KBD className="w-[29px] text-[6px]">⌥</KBD>
+        <KBD className="w-[34px] text-[6px]">⌘</KBD>
         <KBD className="flex-1 min-w-0" wide></KBD>
-        <KBD className="w-[50px] text-[9px]">⌘</KBD>
-        <KBD className="w-[40px] text-[9px]">⌥</KBD>
-        <KBD className="w-[35px] text-[10px]">◀</KBD>
-        <KBD className="w-[35px] h-[24px] text-[10px] flex flex-col items-center justify-center">
-          <div className="text-[8px] leading-none">▲</div>
-          <div className="text-[8px] leading-none">▼</div>
+        <KBD className="w-[34px] text-[6px]">⌘</KBD>
+        <KBD className="w-[29px] text-[6px]">⌥</KBD>
+        <KBD className="w-[25px] text-[6px]">◀</KBD>
+        <KBD className="w-[25px] h-[14px] text-[6px] flex flex-col items-center justify-center">
+          <div className="text-[5px] leading-none">▲</div>
+          <div className="text-[5px] leading-none">▼</div>
         </KBD>
-        <KBD className="w-[35px] text-[10px]">▶</KBD>
+        <KBD className="w-[25px] text-[6px]">▶</KBD>
       </div>
     </div>
   );

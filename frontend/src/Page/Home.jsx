@@ -10,12 +10,13 @@ import {FocusCardsDemo} from '../component/Techstack.jsx'
 import { DNAHelix, GenomicSequence } from '../component/DNAHelix.jsx'
 import { FloatingDockDemo } from '../component/sidebar.jsx'
 import Footer from '../component/Footer.jsx'
+import { BiotechBackground } from '../component/BiotechBackground.jsx'
 
 function Home() {
   return (
-    <>
-    {/* Sidebar */}
-    <FloatingDockDemo />
+    <BiotechBackground>
+      {/* Sidebar */}
+      <FloatingDockDemo />
     
     <div className="biotech-bg min-h-screen">
       {/* Background Layers */}
@@ -23,6 +24,9 @@ function Home() {
       <div className="genomic-particles" />
       <div className="grid-lines" />
       <div className="bio-glow-top" />
+      <div className="chromosome-bands" />
+      <div className="variant-markers" />
+      <div className="helix-trail" />
       
       {/* DNA Helix Decorations */}
       <DNAHelix position="left" />
@@ -46,7 +50,7 @@ function Home() {
         </div>
 
         {/* Mid section */}
-        <div className='mt-10'>
+        <div id="analysis" className='mt-10'>
              <BentoGridSecondDemo />
         </div>
 
@@ -54,15 +58,15 @@ function Home() {
            <LinkPreviewDemo/>
         </div>
 
-        <div className='py-20 -mt-25'>
+        <div id="techstack" className='py-20 -mt-25'>
              <FocusCardsDemo/>
         </div>
         {/* Bottom section  */}
-        <div className='mt-10'>
+        <div id="products" className='mt-10'>
            <ExpandableCardDemo/>
         </div>
 
-        <div className='text-xl mt-10'>
+        <div id="about" className='text-xl mt-10'>
             <TooltipCardDemo/>
         </div>
       </div>
@@ -72,7 +76,7 @@ function Home() {
     <div className='mt-10'>
        <Footer/>
     </div>
-    </>
+    </BiotechBackground>
   )
 }
 

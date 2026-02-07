@@ -190,7 +190,7 @@ const cards = [
     description: "Lana Del Rey",
     title: "Summertime Sadness",
     src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-    ctaText: "Play",
+    ctaText: "View",
     ctaLink: "https://ui.aceternity.com/templates",
     content: () => {
       return (
@@ -212,7 +212,7 @@ const cards = [
     description: "Babbu Maan",
     title: "Mitran Di Chhatri",
     src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
-    ctaText: "Play",
+    ctaText: "View",
     ctaLink: "https://ui.aceternity.com/templates",
     content: () => {
       return (
@@ -234,7 +234,7 @@ const cards = [
     description: "Metallica",
     title: "For Whom The Bell Tolls",
     src: "https://assets.aceternity.com/demos/metallica.jpeg",
-    ctaText: "Play",
+    ctaText: "View",
     ctaLink: "https://ui.aceternity.com/templates",
     content: () => {
       return (
@@ -255,7 +255,7 @@ const cards = [
     description: "Led Zeppelin",
     title: "Stairway To Heaven",
     src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    ctaText: "Play",
+    ctaText: "View",
     ctaLink: "https://ui.aceternity.com/templates",
     content: () => {
       return (
@@ -275,7 +275,7 @@ const cards = [
     description: "Mustafa Zahid",
     title: "Toh Phir Aao",
     src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
-    ctaText: "Play",
+    ctaText: "View",
     ctaLink: "https://ui.aceternity.com/templates",
     content: () => {
       return (

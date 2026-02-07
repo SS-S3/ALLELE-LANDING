@@ -409,3 +409,164 @@ body {
   pointer-events: none;
   z-index: 0;
 }
+
+/* Gene Sequence Animation */
+@keyframes gene-sequence {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.biotech-bg .genomic-particles::before {
+  animation: float-particles-enhanced 25s ease-in-out infinite, gene-sequence 40s linear infinite;
+}
+
+/* Mutation Pulse Effect */
+@keyframes mutation-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.1), 0 0 40px rgba(0, 255, 204, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.15), 0 0 80px rgba(168, 85, 247, 0.08);
+  }
+}
+
+/* Chromosome Bands */
+.chromosome-bands {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.08;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 100px,
+    rgba(0, 255, 204, 0.03) 100px,
+    rgba(0, 255, 204, 0.03) 102px,
+    transparent 102px,
+    transparent 150px,
+    rgba(0, 191, 255, 0.02) 150px,
+    rgba(0, 191, 255, 0.02) 153px
+  );
+  animation: chromosome-shift 30s linear infinite;
+}
+
+@keyframes chromosome-shift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(150px);
+  }
+}
+
+/* Variant Markers */
+.variant-markers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(0, 255, 204, 0.15) 0%, transparent 3%),
+    radial-gradient(circle at 45% 15%, rgba(168, 85, 247, 0.12) 0%, transparent 2.5%),
+    radial-gradient(circle at 75% 35%, rgba(0, 191, 255, 0.1) 0%, transparent 3%),
+    radial-gradient(circle at 25% 65%, rgba(240, 171, 252, 0.08) 0%, transparent 2%),
+    radial-gradient(circle at 85% 75%, rgba(0, 255, 204, 0.1) 0%, transparent 2.5%),
+    radial-gradient(circle at 55% 85%, rgba(168, 85, 247, 0.12) 0%, transparent 3%);
+  animation: variant-blink 8s ease-in-out infinite;
+}
+
+@keyframes variant-blink {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Helix Glow Trail */
+.helix-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    linear-gradient(135deg, transparent 30%, rgba(0, 255, 204, 0.03) 50%, transparent 70%),
+    linear-gradient(-135deg, transparent 30%, rgba(168, 85, 247, 0.02) 50%, transparent 70%);
+  animation: helix-rotate 20s linear infinite;
+}
+
+@keyframes helix-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   HACKATHON PREMIUM ENHANCEMENTS
+   Non-invasive additions for polish
+   ======================================== */
+
+/* Subtle Noise Texture for Depth */
+.biotech-bg {
+  position: relative;
+}
+
+.biotech-bg::before {
+  background-image: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Smooth Transitions for All Interactive Elements */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium Card Hover Effects */
+.content-layer > div {
+  transition: transform 0.3s ease;
+}
+
+/* Subtle Glow on Focus */
+:focus-visible {
+  outline: 2px solid rgba(6, 182, 212, 0.5);
+  outline-offset: 2px;
+}
+
+/* Performance Optimization */
+.biotech-bg * {
+  will-change: auto;
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Text Selection Styling */
+::selection {
+  background-color: rgba(6, 182, 212, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: rgba(6, 182, 212, 0.3);
+  color: white;
+}

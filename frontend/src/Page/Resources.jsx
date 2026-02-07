@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Resources() {
   const [meme, setMeme] = useState(null);
@@ -23,6 +24,12 @@ function Resources() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white flex flex-col items-center justify-center p-8">
       <div className="max-w-4xl w-full text-center">
+        <Link 
+          to="/" 
+          className="inline-block mb-6 text-gray-400 hover:text-white transition-colors"
+        >
+          ← Back
+        </Link>
         <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">404</h1>
         <h2 className="text-3xl font-semibold mb-3 text-gray-200">Page Not Found</h2>
         <p className="text-lg text-gray-400 mb-12">The page you're looking for doesn't exist. Here's something to brighten your day.</p>

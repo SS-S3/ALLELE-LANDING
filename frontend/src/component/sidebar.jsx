@@ -2,11 +2,11 @@ import React from "react";
 import { FloatingDock } from "@/ui/floating-dock";
 import {
   IconBrandGithub,
-  IconBrandX,
   IconExchange,
   IconHome,
   IconNewSection,
   IconTerminal2,
+  IconChartBar,
 } from "@tabler/icons-react";
 
 export function FloatingDockDemo() {
@@ -24,47 +24,36 @@ export function FloatingDockDemo() {
       icon: (
         <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "#products",
     },
     {
-      title: "Components",
+      title: "TechStack",
       icon: (
         <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "#techstack",
     },
     {
-      title: "Aceternity UI",
+      title: "Analysis",
       icon: (
-        <img
-          src="https://assets.aceternity.com/logo-dark.png"
-          width={20}
-          height={20}
-          alt="Aceternity Logo" />
+        <IconChartBar className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "#analysis",
     },
     {
-      title: "Changelog",
+      title: "About",
       icon: (
         <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "#about",
     },
 
-    {
-      title: "Twitter",
-      icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
     {
       title: "GitHub",
       icon: (
         <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://github.com/SS-S3/ALLELE-LANDING",
     },
   ];
   return (

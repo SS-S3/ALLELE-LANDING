@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
-export const Tooltip = ({ children, content, containerClassName }) => {
+export const Tooltip = ({ children, content, containerClassName, maxWidth }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -31,7 +31,7 @@ export const Tooltip = ({ children, content, containerClassName }) => {
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 z-50"
           >
-            <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-xl p-4 max-w-xs">
+            <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-xl p-3 w-48 h-24 flex items-center justify-center text-center text-xs">
               {content}
             </div>
           </motion.div>
