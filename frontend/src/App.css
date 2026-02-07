@@ -1,0 +1,95 @@
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* DNA Helix Animation */
+@keyframes dna-rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes dna-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+
+/* Variant Marker Animation */
+@keyframes variant-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 204, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px 12px rgba(0, 255, 204, 0);
+  }
+}
+
+/* Sequence Flow Animation */
+@keyframes sequence-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Biotech Card Hover Effect */
+.bio-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 255, 204, 0.08);
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(10px);
+}
+
+.bio-card:hover {
+  border-color: rgba(0, 255, 204, 0.25);
+  box-shadow: 
+    0 0 30px rgba(0, 255, 204, 0.08),
+    0 0 60px rgba(0, 191, 255, 0.05),
+    inset 0 0 30px rgba(0, 255, 204, 0.02);
+}
+
+/* Genomic Text Gradient */
+.genomic-text {
+  background: linear-gradient(135deg, #00ffcc 0%, #00bfff 40%, #a855f7 70%, #f0abfc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* DNA Base Colors */
+.base-a { color: #00ffcc; } /* Adenine - Cyan */
+.base-t { color: #fbbf24; } /* Thymine - Amber */
+.base-g { color: #00bfff; } /* Guanine - Blue */
+.base-c { color: #a855f7; } /* Cytosine - Purple */
+
+/* Variant highlight */
+.variant-highlight {
+  position: relative;
+}
+
+.variant-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00ffcc, #00bfff, #a855f7, #f0abfc);
+  background-size: 300% 100%;
+  animation: sequence-flow 4s ease infinite;
+}
