@@ -1,11 +1,26 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { useMobileOptimization } from '../hooks/useMobileOptimization';
 
 /**
  * BiotechBackground - Non-invasive background enhancement wrapper
  * Adds premium visual effects without modifying any child components
+ * OPTIMIZED: Disables heavy effects on mobile devices
  */
 export const BiotechBackground = ({ children }) => {
+  const { shouldReduceEffects } = useMobileOptimization();
+
+  // On mobile/reduced-motion, render minimal wrapper
+  if (shouldReduceEffects) {
+    return (
+      <div className="relative min-h-screen bg-gradient-to-b from-[#030306] via-[#050510] to-[#020204]">
+        <div className="relative z-10">
+          {children}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Animated Gradient Mesh */}

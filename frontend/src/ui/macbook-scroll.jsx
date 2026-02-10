@@ -17,11 +17,16 @@ export const MacbookScroll = ({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (window && window.innerWidth < 768) {
-      setIsMobile(true);
-    }
+    // Check for mobile on mount and resize
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Simplified transforms for mobile - less scroll-linked calculations
   const scaleX = useTransform(
     scrollYProgress,
     [0, 0.3],
@@ -37,6 +42,32 @@ export const MacbookScroll = ({
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const macbookOpacity = useTransform(scrollYProgress, [0.5, 0.7], [1, 0]);
+
+  // On mobile, render a simplified static version
+  if (isMobile) {
+    return (
+      <div
+        ref={ref}
+        className="min-h-[80vh] flex flex-col items-center py-10 justify-start"
+      >
+        <h2 className="text-white text-xl font-normal mb-6 text-center px-4">
+          {title || (
+            <span>
+              Analyze genetic variants, pathogens, and disease associations using evidence-driven genomic models.
+            </span>
+          )}
+        </h2>
+        {badge && <div className="mb-6">{badge}</div>}
+        <div className="relative w-[90%] max-w-[400px]">
+          <img
+            src={src}
+            alt="Preview"
+            className="w-full rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

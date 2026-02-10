@@ -570,3 +570,106 @@ html {
   background-color: rgba(6, 182, 212, 0.3);
   color: white;
 }
+
+/* ========================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* Disable expensive effects on mobile */
+@media (max-width: 768px), (hover: none) {
+  /* Disable all backdrop-filter (extremely expensive on mobile) */
+  .bio-card,
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Disable fixed background animations */
+  .dna-pattern,
+  .genomic-particles,
+  .grid-lines,
+  .bio-glow-top,
+  .chromosome-bands,
+  .variant-markers,
+  .helix-trail {
+    display: none !important;
+  }
+
+  /* Disable pseudo-element animations */
+  .biotech-bg::before,
+  .biotech-bg::after,
+  .genomic-particles::before,
+  .genomic-particles::after,
+  .biotech-bg .dna-pattern::before,
+  .biotech-bg .dna-pattern::after {
+    display: none !important;
+  }
+
+  /* Simplify background on mobile */
+  .biotech-bg {
+    background: linear-gradient(180deg, #030306 0%, #050510 50%, #020204 100%) !important;
+  }
+
+  /* Reduce box-shadow intensity */
+  .bio-card:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.1) !important;
+  }
+
+  /* Disable blur filters */
+  .bio-glow-top,
+  [style*="blur"] {
+    filter: none !important;
+  }
+
+  /* Reduce transition complexity */
+  * {
+    transition-duration: 0.15s !important;
+  }
+
+  /* Prevent layout thrashing from scroll */
+  .content-layer {
+    contain: layout style;
+  }
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .dna-pattern,
+  .genomic-particles,
+  .grid-lines,
+  .bio-glow-top,
+  .chromosome-bands,
+  .variant-markers,
+  .helix-trail {
+    display: none !important;
+  }
+}
+
+/* GPU-friendly animation hints for desktop */
+@media (min-width: 769px) and (hover: hover) {
+  .dna-pattern,
+  .genomic-particles,
+  .grid-lines,
+  .chromosome-bands,
+  .variant-markers,
+  .helix-trail {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* Contain paint for animated elements */
+.biotech-bg .dna-pattern,
+.biotech-bg .genomic-particles {
+  contain: strict;
+}

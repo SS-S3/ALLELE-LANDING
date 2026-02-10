@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { Header } from '../component/Header.jsx'
 import { TypewriterLine } from '../component/Discription.jsx'
 import { MacbookScrollDemo } from '../component/Mac.jsx'
@@ -12,24 +12,38 @@ import { FloatingDockDemo } from '../component/sidebar.jsx'
 import Footer from '../component/Footer.jsx'
 import { BiotechBackground } from '../component/BiotechBackground.jsx'
 import { DownloadSection } from '../component/Download.jsx'
+import { useMobileOptimization } from '../hooks/useMobileOptimization.js'
+
+// Loading fallback for lazy components
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-[200px]">
+    <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 function Home() {
+  const { shouldReduceEffects } = useMobileOptimization();
+
   return (
     <BiotechBackground>
       {/* Sidebar */}
       <FloatingDockDemo />
     
     <div className="biotech-bg min-h-screen">
-      {/* Background Layers */}
-      <div className="dna-pattern" />
-      <div className="genomic-particles" />
-      <div className="grid-lines" />
-      <div className="bio-glow-top" />
-      <div className="chromosome-bands" />
-      <div className="variant-markers" />
-      <div className="helix-trail" />
+      {/* Background Layers - Only render on desktop */}
+      {!shouldReduceEffects && (
+        <>
+          <div className="dna-pattern" />
+          <div className="genomic-particles" />
+          <div className="grid-lines" />
+          <div className="bio-glow-top" />
+          <div className="chromosome-bands" />
+          <div className="variant-markers" />
+          <div className="helix-trail" />
+        </>
+      )}
       
-      {/* DNA Helix Decorations */}
+      {/* DNA Helix Decorations - Component handles its own mobile detection */}
       <DNAHelix position="left" />
       <DNAHelix position="right" />
       <GenomicSequence />
