@@ -62,17 +62,19 @@ function Home() {
             </div>
           </div>
 
-          {/* Mid section */}
-          <div id="analysis" className="w-full">
-            <BentoGridSecondDemo />
-          </div>
+          {/* Mid section - Reduced spacing */}
+          <div className="w-full space-y-4 sm:space-y-6 lg:space-y-8">
+            <div id="analysis" className="w-full">
+              <BentoGridSecondDemo />
+            </div>
 
-          <div className="w-full">
-            <LinkPreviewDemo/>
-          </div>
+            <div className="w-full">
+              <LinkPreviewDemo/>
+            </div>
 
-          <div id="techstack" className="w-full">
-            <FocusCardsDemo/>
+            <div id="techstack" className="w-full">
+              <FocusCardsDemo/>
+            </div>
           </div>
 
           {/* Bottom section */}
@@ -85,7 +87,7 @@ function Home() {
             <DownloadSection/>
           </div>
 
-          <div id="about" className="w-full">
+          <div id="about" className="w-full -mt-2">
             <TooltipCardDemo/>
           </div>
         </div>

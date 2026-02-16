@@ -3,9 +3,9 @@ import React from "react";
 
 export function TooltipCardDemo() {
   return (
-    <div className="mx-auto max-w-2xl p-4 md:p-10">
+    <div className="mx-auto max-w-3xl p-4 md:p-10">
       {/* Paragraph 1 */}
-      <p className="text-base md:text-lg text-white text-justify">
+      <p className="text-lg md:text-xl text-white text-justify">
         Modern genomic workflows often rely on cloud-based pipelines which can{" "}
         <Tooltip
           containerClassName="text-white"
@@ -17,7 +17,7 @@ export function TooltipCardDemo() {
         biomedical analysis.
       </p>
 
-      <p className="mt-10 text-base md:text-lg text-white text-justify">
+      <p className="mt-10 text-lg md:text-xl text-white text-justify">
         To address these limitations,{" "}
         <Tooltip
           containerClassName="text-white"
@@ -29,7 +29,7 @@ export function TooltipCardDemo() {
         internet access.
       </p>
 
-      <p className="mt-10 text-base md:text-lg text-white text-justify">
+      <p className="mt-10 text-lg md:text-xl text-white text-justify">
         The system focuses on{" "}
         <Tooltip
           containerClassName="text-white"
