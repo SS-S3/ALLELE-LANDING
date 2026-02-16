@@ -59,14 +59,14 @@ export default function Footer() {
         <p>
           © {new Date().getFullYear()} Allele 7.o. All rights reserved.
         </p>
-        <p className="mt-2 text-gray-500">
+        <p className="mt-2 text-gray-400">
           For research and educational purposes only. Not intended for clinical
           diagnosis or treatment.
         </p>
       </div>
 
       {/* Team Credit */}
-      <div className="mt-4 text-center text-xs text-gray-500">
+      <div className="mt-4 text-center text-xs text-gray-400">
         Created by <span className="text-gray-300 font-medium">Team Whoope</span>
       </div>
     </footer>

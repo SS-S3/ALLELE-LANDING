@@ -17,7 +17,7 @@ const FloatingDockMobile = ({ items, className }) => {
     <div className={cn("relative block md:hidden", className)}>
       <button
         onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
+        className="h-10 w-10 rounded-full bg-neutral-800 flex items-center justify-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ const FloatingDockMobile = ({ items, className }) => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="h-5 w-5 text-neutral-500 dark:text-neutral-400"
+          className="h-5 w-5 text-neutral-300"
         >
           <path d="M3 12h18M3 6h18M3 18h18" />
         </svg>
@@ -40,7 +40,7 @@ const FloatingDockMobile = ({ items, className }) => {
             <a
               key={item.title}
               href={item.href}
-              className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
+              className="h-10 w-10 rounded-full bg-neutral-800 flex items-center justify-center"
             >
               <div className="h-4 w-4">{item.icon}</div>
             </a>
@@ -58,7 +58,7 @@ const FloatingDockDesktop = ({ items, className }) => {
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden md:flex h-16 gap-4 items-end rounded-2xl bg-gray-50 dark:bg-neutral-900 px-4 pb-3",
+        "mx-auto hidden md:flex h-16 gap-4 items-end rounded-2xl bg-neutral-900 px-4 pb-3",
         className
       )}
     >
@@ -130,7 +130,7 @@ function IconContainer({ mouseX, title, icon, href }) {
         style={{ width, height, scale }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center relative transition-all duration-300"
+        className="aspect-square rounded-full bg-neutral-800 flex items-center justify-center relative transition-all duration-300"
       >
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
@@ -143,7 +143,7 @@ function IconContainer({ mouseX, title, icon, href }) {
             initial={{ opacity: 0, y: 10, x: "-50%" }}
             animate={{ opacity: 1, y: 0, x: "-50%" }}
             exit={{ opacity: 0, y: 2, x: "-50%" }}
-            className="px-2 py-0.5 whitespace-pre rounded-md bg-gray-100 border dark:bg-neutral-800 dark:border-neutral-900 dark:text-white border-gray-200 text-neutral-700 absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs z-50"
+            className="px-2 py-0.5 whitespace-pre rounded-md bg-neutral-800 border border-neutral-700 text-neutral-200 absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs z-50"
           >
             {title}
           </motion.div>

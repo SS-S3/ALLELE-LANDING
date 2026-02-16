@@ -8,17 +8,8 @@ export function DownloadSection() {
   return (
     <div
       id="download"
-      className="relative flex flex-col items-center justify-center py-20 px-4 bg-transparent"
+      className="relative flex flex-col items-center justify-center py-20 px-4"
     >
-      {/* Background Effects - only on desktop */}
-      {!shouldReduceEffects && (
-        <>
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-blue-500/5 pointer-events-none" />
-          <div className="absolute top-20 left-1/4 w-32 h-32 bg-cyan-400/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-1/4 w-40 h-40 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        </>
-      )}
-      
       {/* Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -93,56 +84,56 @@ export function DownloadSection() {
         className="relative mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl w-full"
       >
         {/* Windows Requirements */}
-        <div className={`rounded-xl border border-cyan-400/20 p-6 bg-black/50 shadow-[0_0_30px_rgba(6,182,212,0.15)] hover:shadow-[0_0_40px_rgba(6,182,212,0.25)] hover:border-cyan-400/30 transition-all duration-300 group ${!shouldReduceEffects ? 'backdrop-blur-xl' : ''}`}>
+        <div className="rounded-xl border-2 border-cyan-400/60 p-6 hover:border-cyan-400/80 transition-all duration-300 animate-pulse">
           <div className="flex items-center gap-3 mb-4">
-            <div className={`w-3 h-3 bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.5)] ${!shouldReduceEffects ? 'animate-pulse' : ''}`}></div>
-            <h4 className="font-semibold text-white group-hover:text-cyan-300 transition-colors">
+            <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-full animate-pulse"></div>
+            <h4 className="font-semibold text-white">
               Windows Requirements
             </h4>
           </div>
           <ul className="text-sm text-neutral-300 space-y-3">
-            <li className="flex items-center gap-3 hover:text-cyan-300 transition-colors">
-              <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_4px_rgba(6,182,212,0.8)]"></span>
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
               Windows 10 or later (64-bit)
             </li>
-            <li className="flex items-center gap-3 hover:text-cyan-300 transition-colors">
-              <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_4px_rgba(6,182,212,0.8)]"></span>
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
               Minimum 8 GB RAM
             </li>
-            <li className="flex items-center gap-3 hover:text-cyan-300 transition-colors">
-              <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_4px_rgba(6,182,212,0.8)]"></span>
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
               2 GB free disk space
             </li>
-            <li className="flex items-center gap-3 hover:text-cyan-300 transition-colors">
-              <span className="w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_4px_rgba(34,197,94,0.8)]"></span>
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
               No internet connection required
             </li>
           </ul>
         </div>
 
         {/* macOS Requirements */}
-        <div className={`rounded-xl border border-blue-400/20 p-6 bg-black/50 shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] hover:border-blue-400/30 transition-all duration-300 group ${!shouldReduceEffects ? 'backdrop-blur-xl' : ''}`}>
+        <div className="rounded-xl border-2 border-blue-400/60 p-6 hover:border-blue-400/80 transition-all duration-300 animate-pulse">
           <div className="flex items-center gap-3 mb-4">
-            <div className={`w-3 h-3 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)] ${!shouldReduceEffects ? 'animate-pulse' : ''}`}></div>
-            <h4 className="font-semibold text-white group-hover:text-blue-300 transition-colors">
+            <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full animate-pulse"></div>
+            <h4 className="font-semibold text-white">
               macOS Requirements
             </h4>
           </div>
           <ul className="text-sm text-neutral-300 space-y-3">
-            <li className="flex items-center gap-3 hover:text-blue-300 transition-colors">
-              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full shadow-[0_0_4px_rgba(59,130,246,0.8)]"></span>
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
               macOS 10.14 (Mojave) or later
             </li>
-            <li className="flex items-center gap-3 hover:text-blue-300 transition-colors">
-              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full shadow-[0_0_4px_rgba(59,130,246,0.8)]"></span>
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
               Minimum 8 GB RAM
             </li>
-            <li className="flex items-center gap-3 hover:text-blue-300 transition-colors">
-              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full shadow-[0_0_4px_rgba(59,130,246,0.8)]"></span>
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
               2 GB free disk space
             </li>
-            <li className="flex items-center gap-3 hover:text-blue-300 transition-colors">
-              <span className="w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_4px_rgba(34,197,94,0.8)]"></span>
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
               No internet connection required
             </li>
           </ul>

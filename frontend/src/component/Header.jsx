@@ -7,17 +7,17 @@ export function Header() {
       <EncryptedText
         text="Welcome to the "
         encryptedClassName="text-neutral-500"
-        revealedClassName="dark:text-white text-black"
+        revealedClassName="text-white"
         revealDelayMs={50} />
       <EncryptedText
         text="Allele 7.o"
         encryptedClassName="text-neutral-500"
-        revealedClassName="dark:text-white text-black font-bold"
+        revealedClassName="text-white font-bold"
         revealDelayMs={50} />
       <EncryptedText
         text="!"
         encryptedClassName="text-neutral-500"
-        revealedClassName="dark:text-white text-black"
+        revealedClassName="text-white"
         revealDelayMs={50} />
     </p>
   );

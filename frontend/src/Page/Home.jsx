@@ -15,11 +15,7 @@ import { DownloadSection } from '../component/Download.jsx'
 import { useMobileOptimization } from '../hooks/useMobileOptimization.js'
 
 // Loading fallback for lazy components
-const LoadingFallback = () => (
-  <div className="flex items-center justify-center min-h-[200px]">
-    <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
-  </div>
-);
+
 
 function Home() {
   const { shouldReduceEffects } = useMobileOptimization();
@@ -49,53 +45,55 @@ function Home() {
       <GenomicSequence />
       
       {/* Main Content */}
-      <div className="content-layer w-full">
+      <div className="content-layer w-full flex flex-col items-center px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-sm sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto space-y-8 sm:space-y-12 lg:space-y-16">
+          {/* Hero section */}
+          <div className="space-y-2 sm:space-y-3 lg:space-y-4">
+            <div className="text-center pt-4 sm:pt-6 lg:pt-8">
+              <Header />
+            </div>
 
-      {/* Hero sectionn */}
-        <div className="w-full mx-auto text-center  px-6 pt-6">
-            <Header />
-        </div>
+            <div className="w-full">
+              <TypewriterLine />
+            </div>
 
-        <div>
-          <TypewriterLine />
-        </div>
+            <div className="w-full bg-transparent ">
+              <MacbookScrollDemo />
+            </div>
+          </div>
 
-        <div className="w-full bg-transparent">
-          <MacbookScrollDemo />
-        </div>
+          {/* Mid section */}
+          <div id="analysis" className="w-full">
+            <BentoGridSecondDemo />
+          </div>
 
-        {/* Mid section */}
-        <div id="analysis" className='mt-10'>
-             <BentoGridSecondDemo />
-        </div>
+          <div className="w-full">
+            <LinkPreviewDemo/>
+          </div>
 
-        <div className='-mt-10'>
-           <LinkPreviewDemo/>
-        </div>
+          <div id="techstack" className="w-full">
+            <FocusCardsDemo/>
+          </div>
 
-        <div id="techstack" className='py-20 -mt-25'>
-             <FocusCardsDemo/>
-        </div>
-        {/* Bottom section  */}
-        <div id="products" className='mt-10'>
-           <ExpandableCardDemo/>
-        </div>
+          {/* Bottom section */}
+          <div id="products" className="w-full">
+            <ExpandableCardDemo/>
+          </div>
 
-        {/* Download section */}
-        <div id="download" className='mt-10'>
-           <DownloadSection/>
-        </div>
+          {/* Download section */}
+          <div id="download" className="w-full">
+            <DownloadSection/>
+          </div>
 
-        <div id="about" className='mt-10'>
+          <div id="about" className="w-full">
             <TooltipCardDemo/>
+          </div>
         </div>
       </div>
     </div>
 
     {/* Footer */}
-    <div className='mt-10'>
-       <Footer/>
-    </div>
+    <Footer/>
     </BiotechBackground>
   )
 }

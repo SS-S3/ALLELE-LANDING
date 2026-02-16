@@ -79,7 +79,7 @@ export const MacbookScroll = ({
           translateY: textTransform,
           opacity: textOpacity,
         }}
-        className="dark:text-white text-neutral-800 text-3xl font-normal mb-10 text-center"
+        className="text-white text-3xl font-normal mb-10 text-center"
       >
         {title || (
           <span>
@@ -96,15 +96,15 @@ export const MacbookScroll = ({
           rotate={rotate}
           translate={translate}
         />
-        <div className="h-[18rem] w-[32rem] bg-gray-200 dark:bg-[#272729] rounded-2xl overflow-visible relative -z-10 -mt-1 flex flex-col p-2 pt-1">
+        <div className="h-[18rem] w-[32rem] bg-[#272729] dark:bg-[#272729] rounded-2xl overflow-visible relative -z-10 -mt-1 flex flex-col p-2 pt-1">
         <Keypad />
         <Trackpad />
         <div className="h-2 w-20 mx-auto inset-x-0 absolute bottom-0 bg-gradient-to-t from-[#272729] to-[#050505] rounded-tr-3xl rounded-tl-3xl" />
         {showGradient && (
-          <div className="h-40 w-full absolute bottom-0 inset-x-0 bg-gradient-to-t dark:from-black from-white via-white dark:via-black to-transparent z-50"></div>
+          <div className="h-40 w-full absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black to-transparent z-50"></div>
         )}
         {showGradient && (
-          <div className="absolute bottom-0 w-full h-20 md:h-40 bg-gradient-to-t from-white dark:from-black via-white dark:via-black to-transparent z-50"></div>
+          <div className="absolute bottom-0 w-full h-20 md:h-40 bg-gradient-to-t from-black via-black to-transparent z-50"></div>
         )}
       </div>
       </motion.div>

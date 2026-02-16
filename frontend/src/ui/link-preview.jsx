@@ -38,15 +38,15 @@ export const LinkPreview = ({ children, url, className, imageSrc }) => {
               exit={{ opacity: 0, y: 20, scale: 0.6 }}
               className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 z-50"
             >
-              <div className="bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-xl overflow-hidden">
+              <div className="bg-neutral-900 border border-neutral-700 rounded-xl shadow-xl overflow-hidden">
                 <div className="p-4 w-[300px]">
-                  <div className="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
+                  <div className="text-sm text-neutral-300 mb-2">
                     Preview
                   </div>
-                  <div className="text-xs text-neutral-500 dark:text-neutral-500 break-all">
+                  <div className="text-xs text-neutral-400 break-all">
                     {url}
                   </div>
-                  <div className="mt-3 h-[150px] bg-neutral-100 dark:bg-neutral-900 rounded-lg flex items-center justify-center overflow-hidden">
+                  <div className="mt-3 h-[150px] bg-neutral-800 rounded-lg flex items-center justify-center overflow-hidden">
                     {imageSrc ? (
                       <img 
                         src={imageSrc} 
