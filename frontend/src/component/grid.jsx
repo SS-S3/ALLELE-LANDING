@@ -25,7 +25,7 @@ export function BentoGridSecondDemo() {
 const VariantImage = () => (
   <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden">
     <img 
-      src="/assessts/variant.png" 
+      src="/assessts/varient.png" 
       alt="Variant Analysis" 
       className="w-full h-full object-fill"
     />
