@@ -155,7 +155,7 @@ export function ExpandableCardDemo() {
               {card.ctaText}
             </motion.button>
           </motion.div>
-        ))}}
+        ))}
       </ul>
     </>
   );
